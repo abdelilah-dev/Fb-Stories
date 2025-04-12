@@ -1,0 +1,150 @@
+:root {
+    --main-bg-color: #e2f1ed;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--main-bg-color);
+}
+
+.stories-container {
+    max-width: 600px;
+    margin: 24px auto;
+    position: relative;
+}
+
+.stories-container .content {
+    overflow-x: scroll;
+    scrollbar-width: none;
+}
+
+.stories-container .content::-webkit-scrollbar {
+    display: none;
+}
+
+.stories-container .previous-btn,
+.stories-container .next-btn,
+.stories-full-view .previous-btn,
+.stories-full-view .next-btn {
+    width: 40px;
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    background-color: #444;
+    border-radius: 50%;
+    padding: 10px;
+    display: flex;
+    cursor: pointer;
+}
+
+.stories-container .previous-btn,
+.stories-full-view .previous-btn {
+    left: 8px;
+}
+
+.stories-container .next-btn,
+.stories-full-view .next-btn {
+    right: 8px;
+}
+
+.stories-container .stories {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.stories-container .story {
+    height: 180px;
+    width: 120px;
+    flex-shrink: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+.stories-container .story img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.stories-container .stories .author {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 8px 16px;
+    font-size: 15;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-weight: bold;
+    background: linear-gradient(transparent, #222 130%);
+}
+
+
+.stories-full-view {
+    position: fixed;
+    inset: 0;
+    z-index: 5;
+    background-color: rgba(-0, 0, 0, 0.9);
+    display: none;
+    place-items: center;
+}
+.stories-full-view.active {
+    display: grid;
+}
+.stories-full-view .close-btn {
+    width: 40px;
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    padding: 5px;
+    background-color: #444;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    cursor: pointer;
+}
+
+.stories-full-view .content {
+    height: 90vh;
+    width: 100%;
+    max-width: 700px;
+    position: relative;
+}
+
+.stories-full-view .story {
+    height: 100%;
+    text-align: center;
+}
+
+.stories-full-view .story img {
+    height: 100%;
+    aspect-ratio: 10/16;
+    object-fit: cover;
+    border-radius: 16px;
+}
+.stories-full-view .author {
+    position: absolute;
+    top: 8px;
+    left: 50% ;
+    transform: translateX(-50%);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 4px 32px;
+    border-radius: 8px;
+}
