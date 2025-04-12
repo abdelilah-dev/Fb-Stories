@@ -25,6 +25,7 @@ body {
 .stories-container .content {
     overflow-x: scroll;
     scrollbar-width: none;
+    scroll-behavior: smooth;
 }
 
 .stories-container .content::-webkit-scrollbar {
@@ -47,6 +48,24 @@ body {
     display: flex;
     cursor: pointer;
 }
+
+.stories-container .previous-btn,
+.stories-container .next-btn,
+.stories-full-view .previous-btn,
+.stories-full-view .next-btn {
+    opacity: 0;
+    pointer-events: none;
+    transition: all 400ms ease;
+}
+
+.stories-container .previous-btn.active,
+.stories-container .next-btn.active,
+.stories-full-view .previous-btn.active,
+.stories-full-view .next-btn.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
 
 .stories-container .previous-btn,
 .stories-full-view .previous-btn {
@@ -102,9 +121,11 @@ body {
     display: none;
     place-items: center;
 }
+
 .stories-full-view.active {
     display: grid;
 }
+
 .stories-full-view .close-btn {
     width: 40px;
     position: absolute;
@@ -116,6 +137,7 @@ body {
     border-radius: 50%;
     display: flex;
     cursor: pointer;
+    z-index: 20;
 }
 
 .stories-full-view .content {
@@ -136,13 +158,15 @@ body {
     object-fit: cover;
     border-radius: 16px;
 }
+
 .stories-full-view .author {
     position: absolute;
     top: 8px;
-    left: 50% ;
+    left: 50%;
     transform: translateX(-50%);
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 18px;font-weight: bold;
+    font-size: 18px;
+    font-weight: bold;
     background-color: rgba(0, 0, 0, 0.6);
     color: #fff;
     padding: 4px 32px;
